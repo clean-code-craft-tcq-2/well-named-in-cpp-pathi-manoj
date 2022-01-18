@@ -21,7 +21,24 @@ void testPairToNumber(
     assert(pairNumber == expectedPairNumber);
 }
 
+void printColorManual()
+{
+    std::cout << "Color Pair Manual Mapping:" << std::endl;
+    for (int i = 0; i < TelCoColorCoder::numberOfMajorColors; i++)
+    {
+        for (int j = 0; j < TelCoColorCoder::numberOfMinorColors; j++)
+        {
+            std::string colorPairMappingStr = TelCoColorCoder::MajorColorNames[i];
+            colorPairMappingStr += "-";
+            colorPairMappingStr += TelCoColorCoder::MinorColorNames[j];
+            int colorMappingNumber = i + j + 1;
+            std::cout << colorMappingNumber << " " << colorPairMappingStr << std::endl;
+        }
+    }
+}
+
 int main() {
+    printColorManual();
     testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
     testNumberToPair(5, TelCoColorCoder::WHITE, TelCoColorCoder::SLATE);
 
